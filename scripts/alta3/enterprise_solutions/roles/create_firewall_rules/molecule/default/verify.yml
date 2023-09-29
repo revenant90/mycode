@@ -1,0 +1,21 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Ensure the file exists
+      file:
+        path: /tmp/myfile.txt
+        state: touch
+
+    - name: Check if the file exists
+      stat:
+        path: /tmp/myfile.txt
+      register: file_stat
+
+    - name: Fail if file doesn't exist
+      assert:
+        that: file_stat.stat.exists == true
+
+

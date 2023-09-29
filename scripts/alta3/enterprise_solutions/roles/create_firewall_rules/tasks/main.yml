@@ -1,0 +1,5 @@
+- name: Molecule Hello World!
+  ansible.builtin.debug:
+    msg: Hello, World!
+---
+# tasks file for create_firewall_rules

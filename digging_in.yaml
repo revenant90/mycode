@@ -1,0 +1,12 @@
+---
+- name: using jinja within out playbook
+  hosts: fry
+  connection: ssh
+  gather_facts: true
+
+  tasks:
+
+  - name: display minor version in python
+    debug:
+      var: ansible_facts.python.version.minor
+      

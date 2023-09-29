@@ -1,0 +1,17 @@
+---
+- name: fetch from bender
+  hosts: bender  
+  tasks:
+    - name: Fetch moveme.txt from bender
+      fetch:
+        src:  ~/myfolder/moveme.txt
+        dest: ~/tmp
+
+- name: copy to fry
+  hosts: fry  
+  tasks:
+    - name: Copy moveme.txt to fry
+      copy:
+        src: /tmp/moveme.txt
+        dest: /placehere  # Replace with the desired destination path on "fry"
+
